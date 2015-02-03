@@ -118,6 +118,5 @@ for k in range(ynum):
 			
 print part_t
 '''
-#onzin
 
 # Module to find 
