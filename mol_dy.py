@@ -31,6 +31,12 @@ for z in range(3):
 #plugging the initial conditions in the momenta lists
 for z in range(3):
 	mom.append(ICll[z])
+
+
+for i in range(3):
+	tr = np.mean(mom[i])
+	mom[i] = [x - tr for x in mom[i]]
+	#print np.mean(mom[i])
 	
 '''
 	
