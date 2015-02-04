@@ -7,7 +7,7 @@ def im(N):
 	for i in range(N):
 		ICL = []
 		for dr in range(3):
-			ICL.append(rn.normalvariate(0,1))
+			ICL.append(rn.normalvariate(0,10))
 		ICll.append(ICL)
 
 	trx,trY,trz = 0,0,0
