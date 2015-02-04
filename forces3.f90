@@ -1,9 +1,9 @@
  
-      subroutine calc_forces(N,pos,forces)
+      subroutine calc_forces(N,pos,forces,l)
 
       !implicit none
       integer, intent(in)  :: N
-      real(8), intent(in)  :: pos(N,3)
+      real(8), intent(in)  :: pos(N,3),l
       real(8), intent(inout)  :: forces(N,3)
 !f2py intent (in,out) :: forces
       real(8), parameter :: rc =3.2
@@ -23,13 +23,16 @@
       sig=1 !recommended by jos
       !FLJ from -grad VLJ
       !Fi = 24*ep[2*sig**12/r**14 - sig**6/r**8]*ri
+      
 
-
+      forces(:,:) = 0.0 
       !calculating the radial distance between each pair of particles
       !Afterwards, do forces
       do j = 1, N
         do i = j+1, N
           dr_vec(:) = pos(i,:) - pos(j,:)
+	  dr_vec(:) = dr_vec(:) - Nint(dr_vec(:)/l)*l
+!          if dr_vec(:)
           dr2 = dot_product(dr_vec,dr_vec)
           if (dr2 < rc*rc) then
             f=(2*sig**12/dr2**7) - sig**6/(dr2**4)
