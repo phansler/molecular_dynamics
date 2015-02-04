@@ -2,17 +2,33 @@
 
 import numpy as np
 
-def ip(ynum,xnum,gs):
-	part_t = []
-	for k in range(ynum):
-		for j in range(ynum):
-			for i in range(xnum):
-				partx = (gs/2)*(2*i + ((j+k)%2)) +0.15
-				party = (gs/2)*(np.sqrt(3)*(j+(1./3.)*(k%2))) +0.15
-				partz = (gs/2)*((2.*np.sqrt(6)/3.)*k) +0.15
-				part=[partx,party,partz]
-				part_t.append(part)
+def ip(N,a):
+	npdim = int((N/4)**(1./3.))
+	partl = []
+	for k in range(npdim):
+		for j in range(npdim):
+			for i in range(npdim):
+				partl.append([0+2*a*i,0+2*a*j,0+2*a*k])
+				partl.append([a+2*a*i,a+2*a*j,0+2*a*k])
+				partl.append([a+2*a*i,0+2*a*j,a+2*a*k])
+				partl.append([0+2*a*i,a+2*a*j,a+2*a*k])
+	
+	print partl[0]
+	for i in range(len(partl)):
+			[partl[i][z] - npdim*a/2 for z in partl[i]]
+	print partl[0]
+
+
+	
+				
+
+	rempart = len(partl)
+	forces = []
+	for i in range(rempart):
+		forces.append([0,0,0])
+
+				
 			
 #print part_t
 
-	return part_t
+	return partl,forces
