@@ -1,6 +1,8 @@
 # Creating intial positions along the AMY-DAAN algorithm
 
-def ip(N,gs):
+import numpy as np
+
+def ip(N,gs,l):
 
 	xnum = int(round(N**(1./3.),0))
 
@@ -39,6 +41,8 @@ def ip(N,gs):
 	
 #plugging the intitial positions for z
 
+	znum = int(round(l/((np.sqrt(3)/2)*gsy)))
+
 	zpl = yplb
 
 #print yplb
@@ -73,5 +77,5 @@ def ip(N,gs):
 		forces.append([0,0,0])
 		
 
-	return partl,forces,ynum,xnum
+	return partl,forces,ynum,xnum,znum
 
