@@ -16,7 +16,7 @@ import init_sys
 
 
 # independent parameters
-dt = 0.1
+dt = 0.004
 N=32
 lpnum = 100
 density = 0.85

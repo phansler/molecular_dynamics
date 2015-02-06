@@ -27,7 +27,6 @@
 
       forces(:,:) = 0.0 
       print '(3F12.6)', pos(1:3,:)
-      print *, l
       !calculating the radial distance between each pair of particles
       !Afterwards, do forces
       do j = 1, N
@@ -39,7 +38,7 @@
           if (dr2 < rc*rc) then
             dr2 = 1/dr2
             f= 2*dr2**7 - dr2**4
-!            print *, dr2
+            print *, f
             if (f>1.D3) then 
               print *, i, j, dr2
               print '(3F12.6)', pos(i,:), pos(j,:)
