@@ -29,3 +29,5 @@ def cor(npdim,N,distances,nbins,bin_vec):
   plt.bar(Rin,bin_vec,width=dR)
   plt.show()
   return bin_vec
+  
+  #yesyesyesgirl
